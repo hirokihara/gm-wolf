@@ -1,0 +1,20 @@
+<p class="input-group input-group-lg" ng-repeat="player in register.players track by $index">
+    <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
+    <input type="text"
+           ng-model="player.name"
+           required
+           placeholder="プレイヤー名を入力してください"
+           class="form-control input-lg">
+    <span class="input-group-btn">
+    <button type="submit"
+           class="btn btn-danger" ng-click="register.remove($index)">削除</button>
+    </span>
+</p>
+
+<button class="btn btn-primary" ng-click="register.add()">
+  プレイヤーを追加する
+</button>
+
+<button class="btn btn-success" ng-click="register.gotoAssign()">
+  役職設定へ
+</button>

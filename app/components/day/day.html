@@ -1,0 +1,30 @@
+<p>
+それでは、朝になりました。<br>
+皆さん目を開けて下さい。<br>
+それでは議論を開始して、街に紛れ込んでいる人狼を探して下さい。
+</p>
+<br>
+
+Todo:タイマー欲しい
+<br>
+<br>
+<p>
+そろそろ夜がふけます。<br>
+今日、追放するプレイヤーを１人選んで下さい。<br>
+それでは一斉に指差してください。
+</p>
+<p class="input-group input-group-lg" ng-repeat="player in day.players track by $index">
+    <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
+    <input type="text"
+           ng-model="player.name"
+           required
+           placeholder="プレイヤー名を入力してください"
+           class="form-control input-lg">
+
+    <span class="input-group-btn">
+    <button type="submit"
+           class="btn btn-default">{{player.job}}</button>
+    <button type="submit"
+           class="btn btn-danger">追放</button>
+    </span>
+</p>
