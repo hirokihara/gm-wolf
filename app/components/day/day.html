@@ -1,6 +1,15 @@
+<h3>【日中のターン】</h3>
+<br>
 <p>
 それでは、朝になりました。<br>
 皆さん目を開けて下さい。<br>
+<div ng-if="day.guard == true">
+  昨晩の犠牲者はいませんでした。
+</div>
+<div ng-if="day.guard == false">
+  昨晩の犠牲者は{{day.nightExpulsionName}}さんでした。{{day.nightExpulsionName}}さんは、今後、議論には一切参加できません。ゲームの成り行きを密かに楽しんでください。
+</div>
+<br>
 それでは議論を開始して、街に紛れ込んでいる人狼を探して下さい。
 </p>
 <br>
@@ -9,22 +18,33 @@ Todo:タイマー欲しい
 <br>
 <br>
 <p>
-そろそろ夜がふけます。<br>
-今日、追放するプレイヤーを１人選んで下さい。<br>
-それでは一斉に指差してください。
+では、そろそろ時間となります。<br>
+今日、追放するプレイヤーを１人選んで指差して下さい。<br>
+それでは一斉に指差してください。せーの！！！！
 </p>
+<br>
+<p>
+今日、追放されたプレイヤーは{{day.dayExpulsionName}}さんです。{{day.dayExpulsionName}}さんは、今後、議論には一切参加できません。ゲームの成り行きを密かに楽しんでください。
+</p>
+<br>
 <p class="input-group input-group-lg" ng-repeat="player in day.players track by $index">
-    <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
-    <input type="text"
-           ng-model="player.name"
-           required
-           placeholder="プレイヤー名を入力してください"
-           class="form-control input-lg">
+  <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
+  <input type="text"
+         ng-model="player.name"
+         required
+         placeholder="プレイヤー名を入力してください"
+         class="form-control input-lg">
 
-    <span class="input-group-btn">
-    <button type="submit"
-           class="btn btn-default">{{player.job}}</button>
-    <button type="submit"
-           class="btn btn-danger">追放</button>
-    </span>
+  <span class="input-group-btn">
+  <button type="submit"
+         class="btn btn-default">{{player.job}}</button>
+  <button
+         class="btn btn-default" ng-click="day.expulsion($index)" ng-if="player.alive == true">追放</button>
+  <button
+         class="btn btn-danger" ng-click="day.expulsion($index)" ng-if="player.alive == false">追放</button>
+  </span>
 </p>
+<br>
+<button class="btn btn-success" ng-click="day.goodNight()">
+  夜のターンへ
+</button>

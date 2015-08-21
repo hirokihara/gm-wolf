@@ -10,7 +10,7 @@
     .module('wolf.components.result', [])
     .controller('ResultController', ResultController);
 
-  ResultController.$inject = [];
+  ResultController.$inject = ['$routeParams'];
 
   /**
    * ResultController
@@ -18,8 +18,10 @@
    * @class ResultController
    * @constructor
    */
-  function ResultController() {
+  function ResultController($routeParams) {
     console.log('ResultController Constructor');
+    this.storage = localStorage;
+    this.winner = $routeParams.winner;
   }
 
   /**
@@ -31,6 +33,7 @@
   ResultController.prototype.activate = function() {
     console.log('ResultController activate Method');
     vm = this;
+    vm.players = JSON.parse(this.storage.getItem('wolf.assign-players'));
   };
 
   /**

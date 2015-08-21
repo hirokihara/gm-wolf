@@ -20,7 +20,7 @@
    */
   function RegisterController() {
     console.log('RegisterController Constructor');
-    this.storage = sessionStorage;
+    this.storage = localStorage;
   }
 
   /**
@@ -35,8 +35,8 @@
     vm.players = [];
 
     // sessionStorageにプレイヤー情報があれば表示する
-    if (this.storage.getItem('wolf.players')) {
-      vm.players = JSON.parse(this.storage.getItem('wolf.players'));
+    if (this.storage.getItem('wolf.initial-players')) {
+      vm.players = JSON.parse(this.storage.getItem('wolf.initial-players'));
     }
   };
 
@@ -57,8 +57,10 @@
 
   RegisterController.prototype.gotoAssign = function() {
     console.log('RegisterController gotoAssign Method');
+    this.storage.removeItem('wolf.initial-players');
+    this.storage.setItem('wolf.initial-players', JSON.stringify(vm.players));
+    this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
-    this.storage.setItem('test', 'hoge');
     window.location.href = '/assign';
   };
 

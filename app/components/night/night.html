@@ -1,1 +1,54 @@
-<div>night.html</div>
+<h3>【夜のターン】</h3>
+<br>
+<p>
+夜が更けました。みなさん目を閉じてください。
+</p>
+<br>
+<p>
+霊媒師の方は、そっと目を開けて下さい。<br>
+日中に追放された人は、これでした。<br>
+**ハンドサインで<b>{{night.dayExpulsionType}}</b>だったことを伝える**<br>
+目を閉じて下さい。
+</p>
+<br>
+<p>
+ボディーガードの方は、そっと目を開けて下さい。<br>
+今夜ガードしたいプレイヤーを選んで下さい。<br>
+目を閉じて下さい。
+</p>
+<br>
+<p>
+予言者の方は、そっと目を開けて下さい。<br>
+今夜、予言したいプレイヤーを指差して下さい。<br>
+**ハンドサインで伝える**<br>
+目を閉じて下さい。
+</p>
+<br>
+<p>
+人狼の方は、そっと目を開けて下さい。<br>
+今夜襲う人を一斉に指差して下さい。<br>
+せーの！！<br>
+目を閉じて下さい。
+</p>
+<br>
+<p class="input-group input-group-lg" ng-repeat="player in night.players track by $index">
+  <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
+  <input type="text"
+         ng-model="player.name"
+         required
+         placeholder="プレイヤー名を入力してください"
+         class="form-control input-lg">
+
+  <span class="input-group-btn">
+  <button type="submit"
+         class="btn btn-default">{{player.job}}</button>
+  <button
+         class="btn btn-default" ng-click="night.expulsion($index)" ng-if="player.alive == true">犠牲者</button>
+  <button
+         class="btn btn-danger" ng-click="night.expulsion($index)" ng-if="player.alive == false">犠牲者</button>
+  </span>
+</p>
+<br>
+<button class="btn btn-success" ng-click="night.gotoDay()">
+  日中のターンへ
+</button>

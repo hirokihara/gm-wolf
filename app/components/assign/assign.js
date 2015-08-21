@@ -20,7 +20,7 @@
    */
   function AssignController() {
     console.log('AssignController Constructor');
-    this.storage = sessionStorage;
+    this.storage = localStorage;
   }
 
   /**
@@ -52,6 +52,8 @@
 
   AssignController.prototype.gotoDay = function() {
     console.log('PlayerController gotoDay Method');
+    this.storage.removeItem('wolf.assign-players');
+    this.storage.setItem('wolf.assign-players', JSON.stringify(vm.players));
     this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
     window.location.href = '/day';
