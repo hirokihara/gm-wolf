@@ -53,8 +53,6 @@
   NightController.prototype.gotoDay = function() {
     console.log('PlayerController goodNight Method');
     var expulsion = '**';
-    this.storage.removeItem('wolf.assign-players');
-    this.storage.setItem('wolf.assign-players', JSON.stringify(vm.players));
     for (var i = vm.players.length - 1; i >= 0; i--) {
       if (!vm.players[i].alive) {
         expulsion = vm.players[i].name;
@@ -64,7 +62,24 @@
 
     this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
-    window.location.href = '/day/' + expulsion + '';
+
+    // 残り人数取得
+    var wolfCount = 0;
+    var humanCount = 0;
+    for (var l = vm.players.length - 1; l >= 0; l--) {
+      if (vm.players[l].job === '人　狼') {
+        wolfCount++;
+      } else {
+        humanCount++;
+      }
+    }
+
+    // 結果判定
+    if (wolfCount >= humanCount) {
+      window.location.href = '/result/人狼';
+    } else {
+      window.location.href = '/day/' + expulsion + '';
+    }
   };
   /**
    * Angular ViewModel

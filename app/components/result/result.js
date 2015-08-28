@@ -36,6 +36,12 @@
     vm.players = JSON.parse(this.storage.getItem('wolf.assign-players'));
   };
 
+  ResultController.prototype.gameOver = function() {
+    console.log('ResultController gameOver Method');
+    this.storage.removeItem('wolf.players');
+    this.storage.removeItem('wolf.assign-players');
+    window.location.href = '/register';
+  };
   /**
    * Angular ViewModel
    *

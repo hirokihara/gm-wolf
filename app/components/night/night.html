@@ -28,15 +28,14 @@
 人狼の方は、そっと目を開けて下さい。<br>
 今夜襲う人を一斉に指差して下さい。<br>
 せーの！！<br>
-目を閉じて下さい。
+はい、では目を閉じて下さい。
 </p>
 <br>
 <p class="input-group input-group-lg" ng-repeat="player in night.players track by $index">
   <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
   <input type="text"
          ng-model="player.name"
-         required
-         placeholder="プレイヤー名を入力してください"
+         disabled="disabled"
          class="form-control input-lg">
 
   <span class="input-group-btn">

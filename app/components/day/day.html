@@ -3,19 +3,21 @@
 <p>
 それでは、朝になりました。<br>
 皆さん目を開けて下さい。<br>
-<div ng-if="day.guard == true">
-  昨晩の犠牲者はいませんでした。
-</div>
-<div ng-if="day.guard == false">
-  昨晩の犠牲者は{{day.nightExpulsionName}}さんでした。{{day.nightExpulsionName}}さんは、今後、議論には一切参加できません。ゲームの成り行きを密かに楽しんでください。
+<div ng-if="day.nightExpulsionName">
+  <div ng-if="day.guard == true">
+    昨晩の犠牲者はいませんでした。
+  </div>
+  <div ng-if="day.guard == false">
+    昨晩の犠牲者は{{day.nightExpulsionName}}さんでした。{{day.nightExpulsionName}}さんは、今後、議論には一切参加できません。ゲームの成り行きを密かに楽しんでください。
+  </div>
 </div>
 <br>
 それでは議論を開始して、街に紛れ込んでいる人狼を探して下さい。
 </p>
 <br>
 
-Todo:タイマー欲しい
-<br>
+<!-- Todo:タイマー欲しい -->
+
 <br>
 <p>
 では、そろそろ時間となります。<br>
@@ -31,8 +33,7 @@ Todo:タイマー欲しい
   <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
   <input type="text"
          ng-model="player.name"
-         required
-         placeholder="プレイヤー名を入力してください"
+         disabled="disabled"
          class="form-control input-lg">
 
   <span class="input-group-btn">

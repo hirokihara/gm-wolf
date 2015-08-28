@@ -16,7 +16,8 @@
       'wolf.components.register',
       'wolf.components.assign',
       'wolf.components.day',
-      'wolf.components.night'
+      'wolf.components.night',
+      'wolf.components.result'
     ])
     .controller('AppController', AppController);
 
