@@ -4,7 +4,8 @@
            ng-model="player.name"
            required
            placeholder="プレイヤー名を入力してください"
-           class="form-control input-lg">
+           class="form-control input-lg"
+           ng-focus-if="1==1">
     <span class="input-group-btn">
     <button type="submit"
            class="btn btn-danger" ng-click="register.remove($index)">削除</button>
