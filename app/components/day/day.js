@@ -40,6 +40,7 @@
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     vm.dayExpulsionName = '**';
     vm.dayExpulsionType = '人間';
+    window.scrollTo(0, 0)
   };
 
   DayController.prototype.expulsion = function(index) {
@@ -80,12 +81,12 @@
 
     // 結果判定
     if (wolfCount === 0) {
-      window.location.href = '/result/人間';
+      window.location.href = '#/result/人間';
     } else {
       if (wolfCount >= humanCount) {
-        window.location.href = '/result/人狼';
+        window.location.href = '#/result/人狼';
       } else {
-        window.location.href = '/night/' + vm.dayExpulsionType + '';
+        window.location.href = '#/night/' + vm.dayExpulsionType + '';
       }
     }
   };

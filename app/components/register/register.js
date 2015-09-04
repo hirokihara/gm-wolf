@@ -33,11 +33,11 @@
     console.log('RegisterController activate Method');
     vm = this;
     vm.players = [];
-
     // sessionStorageにプレイヤー情報があれば表示する
     if (this.storage.getItem('wolf.initial-players')) {
       vm.players = JSON.parse(this.storage.getItem('wolf.initial-players'));
     }
+    window.scrollTo(0, 0)
   };
 
   RegisterController.prototype.remove = function(index) {
@@ -61,7 +61,7 @@
     this.storage.setItem('wolf.initial-players', JSON.stringify(vm.players));
     this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
-    window.location.href = '/assign';
+    window.location.href = '#/assign';
   };
 
   /**

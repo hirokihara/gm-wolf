@@ -34,13 +34,14 @@
     console.log('ResultController activate Method');
     vm = this;
     vm.players = JSON.parse(this.storage.getItem('wolf.assign-players'));
+    window.scrollTo(0, 0)
   };
 
   ResultController.prototype.gameOver = function() {
     console.log('ResultController gameOver Method');
     this.storage.removeItem('wolf.players');
     this.storage.removeItem('wolf.assign-players');
-    window.location.href = '/register';
+    window.location.href = '#/register';
   };
   /**
    * Angular ViewModel

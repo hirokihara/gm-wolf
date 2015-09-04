@@ -5,7 +5,7 @@
     <base href="/">
     <title>wolf</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -38,6 +38,7 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-new-router/dist/router.es5.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -62,17 +63,12 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <!-- injector:js -->
-        <script src="components/about/about.js"></script>
         <script src="components/assign/assign.js"></script>
-        <script src="components/contact/contact.js"></script>
         <script src="components/day/day.js"></script>
-        <script src="components/home/home.js"></script>
-        <script src="components/job/job.js"></script>
-        <script src="components/member/member.js"></script>
         <script src="components/night/night.js"></script>
-        <script src="components/player/player.js"></script>
         <script src="components/register/register.js"></script>
         <script src="components/result/result.js"></script>
+        <script src="directives/mydirective.js"></script>
         <script src="scripts/config.js"></script>
         <script src="service/gruntfiles/gruntfiles.js"></script>
         <!-- endinjector -->

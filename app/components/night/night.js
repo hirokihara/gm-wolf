@@ -24,6 +24,7 @@
     vm = this;
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     this.dayExpulsionType = $routeParams.type;
+    window.scrollTo(0, 0)
   }
 
   /**
@@ -76,9 +77,9 @@
 
     // 結果判定
     if (wolfCount >= humanCount) {
-      window.location.href = '/result/人狼';
+      window.location.href = '#/result/人狼';
     } else {
-      window.location.href = '/day/' + expulsion + '';
+      window.location.href = '#/day/' + expulsion + '';
     }
   };
   /**

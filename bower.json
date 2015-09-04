@@ -5,7 +5,8 @@
     "bootstrap": "~3.3.5",
     "angular": "~1.4.3",
     "angular-new-router": "~0.5.3",
-    "angular-resource": "~1.4.3"
+    "angular-resource": "~1.4.3",
+    "angular-touch": "~1.4.5"
   },
   "overrides": {
     "angular-new-router": {

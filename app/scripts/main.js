@@ -9,10 +9,9 @@
   angular
     .module('wolf', [
       'ngNewRouter',
+      'ngTouch',
       'wolf.config',
-      'wolf.components.home',
-      'wolf.components.about',
-      'wolf.components.contact',
+      'wolf.mydirective',
       'wolf.components.register',
       'wolf.components.assign',
       'wolf.components.day',
@@ -23,9 +22,6 @@
 
   AppController.$routeConfig = [
     {path: '/',       redirectTo: '/register'},
-    {path: '/home',    component: 'home'},
-    {path: '/about',   component: 'about'},
-    {path: '/contact', component: 'contact'},
     {path: '/register', component: 'register'},
     {path: '/assign', component: 'assign'},
     {path: '/day/:name', component: 'day'},

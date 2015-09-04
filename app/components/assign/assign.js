@@ -35,6 +35,7 @@
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     // vm.jobCycle = {'市民':'人狼', '人狼':'予言者', '予言者':'霊媒師', '霊媒師':'ボディーガード', 'ボディーガード':'裏切り者', '裏切り者':'市民'};
     vm.jobCycle = {'市　民':'人　狼', '人　狼':'予言者', '予言者':'霊媒師', '霊媒師':'ボディ', 'ボディ':'裏切り', '裏切り':'市　民'};
+    window.scrollTo(0, 0)
   };
 
   AssignController.prototype.changeJob = function(index) {
@@ -47,7 +48,7 @@
     console.log('PlayerController backtoRegister Method');
     this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
-    window.location.href = '/register';
+    window.location.href = '#/register';
   };
 
   AssignController.prototype.gotoDay = function() {
@@ -56,7 +57,7 @@
     this.storage.setItem('wolf.assign-players', JSON.stringify(vm.players));
     this.storage.removeItem('wolf.players');
     this.storage.setItem('wolf.players', JSON.stringify(vm.players));
-    window.location.href = '/day';
+    window.location.href = '#/day';
   };
 
   /**
