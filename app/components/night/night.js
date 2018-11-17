@@ -24,7 +24,7 @@
     vm = this;
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     this.dayExpulsionType = $routeParams.type;
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }
 
   /**
@@ -37,6 +37,23 @@
     console.log('NightController activate Method');
     vm = this;
     vm.nightExpulsionName = '**';
+  };
+
+  NightController.prototype.guard = function(index) {
+    console.log('PlayerController expulsion Method ', index);
+    if (vm.players[index].safe === "none" && vm.players[index].safe !== "past") {
+      vm.players[index].safe = "current";
+    } else if (vm.players[index].safe === "current") {
+      vm.players[index].safe = "none";
+    }
+
+    for (var i = vm.players.length - 1; i >= 0; i--) {
+      if (i !== index) {
+        if (vm.players[i].safe !== "past") {
+          vm.players[i].safe = "none";
+        }
+      }
+    }
   };
 
   NightController.prototype.expulsion = function(index) {
@@ -56,8 +73,13 @@
     var expulsion = '**';
     for (var i = vm.players.length - 1; i >= 0; i--) {
       if (!vm.players[i].alive) {
-        expulsion = vm.players[i].name;
-        vm.players.splice(i, 1);
+        if (vm.players[i].safe != "current") {
+          expulsion = vm.players[i].name;
+          vm.players.splice(i, 1);
+        }
+      }
+      if (vm.players[i].safe == "current") {
+        vm.players[i].safe = "past";
       }
     }
 

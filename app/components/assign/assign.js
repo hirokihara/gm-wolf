@@ -34,14 +34,17 @@
     vm = this;
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     // vm.jobCycle = {'市民':'人狼', '人狼':'予言者', '予言者':'霊媒師', '霊媒師':'ボディーガード', 'ボディーガード':'裏切り者', '裏切り者':'市民'};
-    vm.jobCycle = {'市　民':'人　狼', '人　狼':'予言者', '予言者':'霊媒師', '霊媒師':'ボディ', 'ボディ':'裏切り', '裏切り':'市　民'};
-    window.scrollTo(0, 0)
+    vm.jobCycle = {'市　民':'人　狼', '人　狼':'予言者', '予言者':'ボディ', 'ボディ':'霊媒師', '霊媒師':'裏切り', '裏切り':'市　民'};
+    vm.ColorCycle = {'def':'red', 'red':'green', 'green':'orange', 'orange':'purple', 'purple':'yellow', 'yellow':'def'};
+    window.scrollTo(0, 0);
   };
 
   AssignController.prototype.changeJob = function(index) {
     console.log('PlayerController changeJob Method ', index);
     var currentJob = vm.players[index].job;
+    var currentColor = vm.players[index].color;
     vm.players[index].job = vm.jobCycle[currentJob];
+    vm.players[index].color = vm.ColorCycle[currentColor];
   };
 
   AssignController.prototype.backtoRegister = function() {

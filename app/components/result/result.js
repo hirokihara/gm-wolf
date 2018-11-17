@@ -34,7 +34,7 @@
     console.log('ResultController activate Method');
     vm = this;
     vm.players = JSON.parse(this.storage.getItem('wolf.assign-players'));
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
   ResultController.prototype.gameOver = function() {

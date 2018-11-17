@@ -37,7 +37,7 @@
     if (this.storage.getItem('wolf.initial-players')) {
       vm.players = JSON.parse(this.storage.getItem('wolf.initial-players'));
     }
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
   RegisterController.prototype.remove = function(index) {
@@ -50,6 +50,8 @@
     var newPlayer = {
       name: '',
       job: '市　民',
+      color: 'def',
+      safe: 'none',
       alive: true
     };
     vm.players.push(newPlayer);

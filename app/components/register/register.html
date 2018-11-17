@@ -1,12 +1,12 @@
 <h3>【プレイヤー登録】</h3>
 <br>
-<p class="input-group input-group-lg" ng-repeat="player in register.players track by $index">
+<p class="input-group input-group-lg my-group" ng-repeat="player in register.players track by $index">
     <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
     <input type="text"
            ng-model="player.name"
            required
            placeholder="プレイヤー名を入力してください"
-           class="form-control input-lg"
+           class="form-control input-lg my-input"
            ng-focus-if="1==1">
     <span class="input-group-btn">
     <button type="submit"

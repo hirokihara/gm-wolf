@@ -40,7 +40,7 @@
     vm.players = JSON.parse(this.storage.getItem('wolf.players'));
     vm.dayExpulsionName = '**';
     vm.dayExpulsionType = '人間';
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
   DayController.prototype.expulsion = function(index) {

@@ -26,7 +26,7 @@
 <br>
 <p>
 人狼の方は、そっと目を開けて下さい。<br>
-今夜襲う人を静かに指差して下さい。<br>
+  アイコンタクトで相談し、今夜襲う人を決めて静かに指差して下さい。<br>
 はい、では目を閉じて下さい。
 </p>
 <br>
@@ -42,6 +42,12 @@
   <span class="input-group-btn">
   <button type="submit"
          class="btn btn-default">{{player.job}}</button>
+  <button
+    class="btn btn-default {{player.safe}}" ng-click="night.guard($index)">ガード</button>
+  <!--<button-->
+    <!--class="btn btn-default" ng-click="night.guard($index)" ng-if="player.safe == 'past'">ガード</button>-->
+  <!--<button-->
+    <!--class="btn btn-success" ng-click="night.guard($index)" ng-if="player.safe == 'current'">ガード</button>-->
   <button
          class="btn btn-default" ng-click="night.expulsion($index)" ng-if="player.alive == true">犠牲者</button>
   <button

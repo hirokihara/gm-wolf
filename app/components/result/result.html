@@ -7,12 +7,12 @@
   人狼は全員追放されました。市民チームの勝利です！！
 </div>
 <br>
-<p class="input-group input-group-lg" ng-repeat="player in result.players track by $index">
+<p class="input-group input-group-lg my-group" ng-repeat="player in result.players track by $index">
   <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
   <input type="text"
          ng-model="player.name"
          disabled="disabled"
-         class="form-control input-lg">
+         class="form-control input-lg my-input">
 
   <span class="input-group-btn">
   <button type="submit"
