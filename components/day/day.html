@@ -29,16 +29,16 @@
 今日、追放されたプレイヤーは{{day.dayExpulsionName}}さんです。{{day.dayExpulsionName}}さんは、今後、議論には一切参加できません。ゲームの成り行きを密かに楽しんでください。
 </p>
 <br>
-<p class="input-group input-group-lg" ng-repeat="player in day.players track by $index">
+<p class="input-group input-group-lg my-group" ng-repeat="player in day.players track by $index">
   <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
   <input type="text"
          ng-model="player.name"
          disabled="disabled"
-         class="form-control input-lg">
+         class="form-control input-lg my-input">
 
   <span class="input-group-btn">
   <button type="submit"
-         class="btn btn-default">{{player.job}}</button>
+         class="btn btn-default {{player.color}}">{{player.job}}</button>
   <button
          class="btn btn-default" ng-click="day.expulsion($index)" ng-if="player.alive == true">追放</button>
   <button

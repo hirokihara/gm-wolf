@@ -1,46 +1,50 @@
 <h3>【役職確認】</h3>
 <br>
 <p>
-それでは、これより役職確認を行います。みなさん目を閉じて下さい。
+  それでは、夜が更けました。皆さん目を閉じてください。これより役職確認を行います。
 </p>
 <br>
 <p>
-人狼の方は目を開けて下さい。<br>
-お互いを確認して下さい。<br>
-目を閉じて下さい。
+  人狼の方はそっと目を開けて下さい。<br>
+  お互いを確認して下さい。<br>
+  目を閉じて下さい。
 </p>
 <br>
 <p>
-予言者の方は目を開けて下さい。<br>
+<p class="small-p">※参加人数によっては預言者がいない場合があります</p>
+予言者の方はそっと目を開けて下さい。<br>
 ハンドサインの確認を行います。これが人狼です。これが人間です。<br>
 目を閉じて下さい。
 </p>
 <br>
 <p>
-霊媒師の方は目を開けて下さい。<br>
+<p class="small-p">※参加人数によってはボディーガードがいない場合があります</p>
+ボディーガードの方はそっと目を開けて下さい。<br>
+目を閉じて下さい。
+</p>
+<br>
+<p>
+<p class="small-p">※参加人数によっては霊媒師がいない場合があります</p>
+霊媒師の方はそっと目を開けて下さい。<br>
 ハンドサインの確認を行います。これが人狼です。これが人間です。<br>
 目を閉じて下さい。
 </p>
 <br>
 <p>
-ボディーガードの方は目を開けて下さい。<br>
+<p class="small-p">※参加人数によっては裏切り者がいない場合があります</p>
+裏切り者の方はそっと目を開けて下さい。<br>
 目を閉じて下さい。
 </p>
 <br>
-<p>
-裏切り者の方は目を開けて下さい。<br>
-目を閉じて下さい。
-</p>
-<br>
-<p class="input-group input-group-lg" ng-repeat="player in assign.players track by $index">
-    <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
-    <input type="text"
-           ng-model="player.name"
-           disabled="disabled"
-           class="form-control input-lg">
-    <span class="input-group-btn">
+<p class="input-group input-group-lg my-group" ng-repeat="player in assign.players track by $index">
+  <span class="input-group-addon" id="basic-addon1">{{$index + 1}}</span>
+  <input type="text"
+         ng-model="player.name"
+         disabled="disabled"
+         class="form-control input-lg my-input">
+  <span class="input-group-btn">
     <button type="submit"
-           class="btn btn-primary" ng-click="assign.changeJob($index)">{{player.job}}</button>
+            class="btn btn-primary {{player.color}}" ng-click="assign.changeJob($index)">{{player.job}}</button>
     </span>
 </p>
 
@@ -48,7 +52,7 @@
   プレイヤー登録へ戻る
 </button>
 
-<button class="btn btn-success" ng-click="assign.gotoDay()">
+<button class="btn btn-success btn-lg" ng-click="assign.gotoDay()">
   ゲームスタート
 </button>
 
